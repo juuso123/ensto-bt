@@ -1,0 +1,3 @@
+aiomqtt
+paho-mqtt
+bleak
