@@ -1,3 +1,5 @@
 aiomqtt
 paho-mqtt
 bleak
+python-dotenv
+aiofiles
