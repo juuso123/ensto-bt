@@ -2,11 +2,11 @@ import logging
 import asyncio
 import struct
 import json
-
+import os
 import aiomqtt
 from pathlib import Path
 from bleak import BleakScanner, BleakClient, BleakError
-
+from dotenv import load_dotenv
 from collections import deque
 
 logging.basicConfig(level=logging.INFO)
@@ -18,13 +18,14 @@ BOOST_UUID = 'ca3c0685-b708-4cd4-a049-5badd10469e7'
 # Define the factory reset ID characteristic UUID
 FACTORY_RESET_ID_UUID = "f366dddb-ebe2-43ee-83c0-472ded74c8fa"  # Example
 
-# Define MQTT broker details, planning on using .env file
-MQTT_BROKER = "127.0.0.1"
-MQTT_PORT = 1883
-MQTT_CLIENT_ID = "ensto"
 BASE_TOPIC = "ECO16BT"
-MQTT_USERNAME = "user"
-MQTT_PASSWORD = "pass"
+
+# Define MQTT broker details, planning on using .env file (dotenv)
+MQTT_BROKER = os.getenv("MQTT_BROKER")
+MQTT_PORT = os.getenv("MQTT_PORT")
+MQTT_CLIENT_ID = os.getenv("MQTT_CLIENT_ID")
+MQTT_USERNAME = os.getenv("MQTT_USERNAME")
+MQTT_PASSWORD = os.getenv("MQTT_PASSWORD")
 
 # Global client and loop
 loop = None
