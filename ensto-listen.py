@@ -68,7 +68,7 @@ async def write_value_to_ble(msg):
                 log.debug(f"mac={thermostat_address}, reset_key={reset_key}")
                 # Connect to the device
                 try:
-                    async with BleakClient(thermostat_address, adapter=ADAPTER_ADDRESS) as client:
+                    async with BleakClient(thermostat_address, adapter=ADAPTER_ADDRESS, timeout=15) as client:
                         log.info(f"Connected to {device_name}")
 
                         # Pairing (read and write factory reset ID)

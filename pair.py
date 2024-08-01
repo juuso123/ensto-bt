@@ -69,7 +69,7 @@ async def connect(device_address):
 
 
 async def main():
-    devices = await BleakScanner.discover(timeout=15,return_adv=True)
+    devices = await BleakScanner.discover(timeout=15, return_adv=True)
     for d in devices:
         device = devices[d]
         try:
