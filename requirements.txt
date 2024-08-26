@@ -4,3 +4,4 @@ bleak
 python-dotenv
 aiofiles
 python-dateutil
+sdnotify
